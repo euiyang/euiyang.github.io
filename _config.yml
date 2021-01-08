@@ -28,7 +28,7 @@ sass:
 
 # Author settings
 author:
-  name     : "euiyang"
+  name     : "euiyang jeong"
 
 plugins:
   - jekyll-sitemap
