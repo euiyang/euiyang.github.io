@@ -114,6 +114,4 @@ RAW= 5000(RVA)-1000(VA)+ 400(ptrtorawdata)=4400
 file offset 과 RVA가 같은 섹션이면 상관없는데 서로 다른 섹션에 잡히게 되면 정의할 수 없는 상태이다.  
 
 
-# IAT  
-
 
