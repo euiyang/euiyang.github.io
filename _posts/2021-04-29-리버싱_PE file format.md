@@ -9,6 +9,7 @@ DOS header부터 section header 까지를 PE body라 부른다.
 
 섹션 헤더에 각 섹션마다의 파일/메모리에서의 크기, 위치, 속성이 정의되어 있으며, 각 섹션의 끝부분과 PE 헤더의 끝에는 Null 값으로 padding 되어 있다.  
 
+***
 
 # VA, RVA  
 VA는 프로세스 가상 메모리의 절대주소를 말하고, RVA는 기준 위치로부터의 상대주소를 말한다.  
@@ -16,8 +17,12 @@ VA는 프로세스 가상 메모리의 절대주소를 말하고, RVA는 기준 
 PE header는 많은 구조체로 이루어져 있고, 내부는 재배치 과정을 통해 빈 공간에 로딩되어야하기 때문에 RVA 주소로 되어 있다.  
 ![image](https://user-images.githubusercontent.com/65746019/116503047-1ef62f80-a8f0-11eb-9a39-060267910a4e.png)  
 
+***
+
 # image 뜻  
 아래에 나오는 IMAGE_NT_HEADER 등에서 사용되는 image의 뜻은 메모리에 로딩된 파일과 아닌 파일을 구별하기 위해서 메모리에 로딩된 파일을 image라 부른다.  
+
+***
 
 # DOS header(notepad.exe를 hxd에서 분석)  
 맨 처음 부분의  
@@ -29,6 +34,8 @@ e_lfanew: NT header의 offset을 표시(파일에 따라 변함)
 ## DOS STUB
 DOS header 밑에 존재하며 크기도 일정하지 않다. 이 DOS stub는 16비트 DOS 환경에서 동작하기 때문에 Windows에서는 무시한다.  
 DOS header는 이전에 사용되는 DOS 파일에 대한 호환성을 고려해서 만들어진 공간이며 필요시 16비트의 DOS용 코드를 실행할 수 있다.(16비트 코드가 존재할 시.)  
+
+***
 
 # NT header  
 구조체는 signature, file header, optional header로 구성되어 있다.  
@@ -63,6 +70,7 @@ file header에는 파일의 속성을 나타내는 구조체이다.
 
 ![image](https://user-images.githubusercontent.com/65746019/116543790-47e6e680-a929-11eb-8c87-ccc607004976.png)  
 
+***
 
 # Section Header  
 PE 파일에는 여러개의 섹션이 존재하므로 각 섹션별로 특성, 접근 권한을 적어놓는 헤더가 바로 section header다.  
@@ -89,6 +97,7 @@ characteristics는 아래 그림의 or연산으로 조합되어 사용된다.
 ![image](https://user-images.githubusercontent.com/65746019/116560495-66a2a880-a93c-11eb-87d3-70d240286e87.png)  
 위의 그림에는 총 6개의 섹션이 존재한다.  
 
+***
 
 # RVA to RAW  
 PE 파일이 메모리에 로딩 되었을 때 각 섹션에서 RVA와 파일 offset을 매핑하는 방법을 RVA to RAW라 한다.  
