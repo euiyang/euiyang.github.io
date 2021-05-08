@@ -1,1 +1,0 @@
-# IAT(import address table)  
