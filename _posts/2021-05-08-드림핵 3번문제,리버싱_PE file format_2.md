@@ -18,6 +18,30 @@ ecx를 인덱스와 일단 xor 연산을 한 뒤 index * 2를 더하는 방법�
 ![image](https://user-images.githubusercontent.com/65746019/117529329-f964d680-b011-11eb-9f4f-b0a9b576a92c.png)  
 
 
+# 드림핵 4번 문제  
+비트 연산  
+부호 보존 연산(arithmatic shift):  
+sal: left 1bit
+sar: right 1bit
+부호없는 연산(logical shift):  
+shl: left 1bit  
+shr: right 1bit  
+
+차이: right shift 시 MSB(부호 비트)의 값에서 logical shift는 0을 넣어주고 arithmatic shift는 자기 자신의 MSB 값을 다시 넣어준다.  
+
+
+3번이랑 비슷하게 연산문제  
+![image](https://user-images.githubusercontent.com/65746019/117537958-faf8c380-b03e-11eb-9ac7-559d35048a85.png)  
+
+bit 연산은 양수에 대해 진행하므로 부호 생각할 필요없다.  
+eax를 sar로 4bit를 오른쪽으로 보낸 결과와 ecx를 shl로 4bit한 값을 0xf0와 and 연산 한 결과를 or 연산한다.  
+그 값이 정답과 비교해서 동일하면 답일 건데, 왜 답이 안나올까?  
+
+![image](https://user-images.githubusercontent.com/65746019/117538836-abb49200-b042-11eb-843b-08fe49df50cf.png)  
+
+왜일까요?
+
+
 
 # IAT(import address table)  
 어떤 라이브러리에서 어떤 함수를 사용하는지 적은 테이블이다.  
@@ -106,7 +130,6 @@ GetProcAddress 함수의 동작 원리
 3) 악성코드(trojan, worm): anti-virus 제품이 탐지하지 못하도록  
 
 실습 나중에  
-
 
 
 
